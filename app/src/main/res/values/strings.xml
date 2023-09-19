@@ -14,4 +14,6 @@
     <string name="qnum">Number of questions</string>
     <string name="minus">-</string>
     <string name="plus">+</string>
+    <string name="num">1</string>
+    <string name="start">START</string>
 </resources>

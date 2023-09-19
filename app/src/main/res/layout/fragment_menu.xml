@@ -17,25 +17,23 @@
         android:adjustViewBounds="true"
         android:scaleType="fitXY"
         android:src="@mipmap/ic_launcher_foreground"
-        app:layout_constraintBottom_toTopOf="@id/guideline"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="-98dp" />
 
     <RadioGroup
         android:id="@+id/radioGroup1"
         android:layout_width="151dp"
         android:layout_height="126dp"
         android:orientation="vertical"
-        app:layout_constraintTop_toTopOf="@+id/guideline"
-        tools:layout_editor_absoluteX="19dp">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline">
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/difficulty"
+            android:textColor="@color/darkgrey"
             tools:layout_editor_absoluteX="5dp"
             tools:layout_editor_absoluteY="163dp"></TextView>
 
@@ -45,6 +43,7 @@
             android:layout_height="30dp"
             android:onClick="onRadioButtonClicked"
             android:text="@string/Medium"
+            android:textColor="@color/darkgrey"
             tools:layout_editor_absoluteX="5dp"
             tools:layout_editor_absoluteY="230dp" />
 
@@ -55,6 +54,7 @@
             android:layout_height="30dp"
             android:onClick="onRadioButtonClicked"
             android:text="@string/Easy"
+            android:textColor="@color/darkgrey"
             tools:layout_editor_absoluteX="5dp"
             tools:layout_editor_absoluteY="182dp" />
 
@@ -64,6 +64,7 @@
             android:layout_height="30dp"
             android:onClick="onRadioButtonClicked"
             android:text="@string/Hard"
+            android:textColor="@color/darkgrey"
             tools:layout_editor_absoluteX="5dp"
             tools:layout_editor_absoluteY="278dp" />
 
@@ -74,14 +75,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_end="408dp" />
+        app:layout_constraintGuide_percent="0.31" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="205dp" />
+        app:layout_constraintGuide_begin="204dp" />
 
     <RadioGroup
         android:id="@+id/radioGroup2"
@@ -95,6 +96,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/operator"
+            android:textColor="@color/darkgrey"
             tools:layout_editor_absoluteX="5dp"
             tools:layout_editor_absoluteY="163dp"></TextView>
 
@@ -105,6 +107,7 @@
             android:onClick="onRadioButtonClicked"
             android:padding="0dp"
             android:text="@string/addition"
+            android:textColor="@color/darkgrey"
             tools:layout_editor_absoluteX="5dp"
             tools:layout_editor_absoluteY="230dp" />
 
@@ -115,6 +118,7 @@
             android:layout_height="30dp"
             android:onClick="onRadioButtonClicked"
             android:text="@string/multi"
+            android:textColor="@color/darkgrey"
             tools:layout_editor_absoluteX="5dp"
             tools:layout_editor_absoluteY="182dp" />
 
@@ -124,6 +128,7 @@
             android:layout_height="30dp"
             android:onClick="onRadioButtonClicked"
             android:text="@string/division"
+            android:textColor="@color/darkgrey"
             tools:layout_editor_absoluteX="5dp"
             tools:layout_editor_absoluteY="278dp" />
 
@@ -133,6 +138,7 @@
             android:layout_height="30dp"
             android:onClick="onRadioButtonClicked"
             android:text="@string/sub"
+            android:textColor="@color/darkgrey"
             tools:layout_editor_absoluteX="5dp"
             tools:layout_editor_absoluteY="278dp" />
     </RadioGroup>
@@ -140,36 +146,85 @@
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
-        android:layout_height="31dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
-        android:textSize="30dp"
         android:text="@string/qnum"
+        android:textSize="30dp"
+        android:textColor="@color/darkgrey"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline3"></TextView>
+
     <TextView
         android:id="@+id/plus"
-        android:layout_width="wrap_content"
-        android:layout_height="31dp"
-        android:layout_marginTop="4dp"
-        android:textSize="30dp"
-        android:text="@string/qnum"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="35dp"
+        android:layout_height="77dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="52dp"
+        android:text="@string/plus"
+        android:textSize="60dp"
+        android:textColor="@color/darkgrey"
+        app:layout_constraintStart_toEndOf="@+id/num"
         app:layout_constraintTop_toTopOf="@+id/guideline3"></TextView>
+
     <TextView
         android:id="@+id/minus"
         android:layout_width="wrap_content"
-        android:layout_height="31dp"
-        android:layout_marginTop="4dp"
-        android:textSize="30dp"
-        android:text="@string/qnum"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="52dp"
+        android:text="@string/minus"
+        android:textSize="60dp"
+        android:textColor="@color/darkgrey"
+        app:layout_constraintEnd_toStartOf="@+id/num"
+        app:layout_constraintHorizontal_bias="0.772"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline3"></TextView>
+
+    <TextView
+        android:id="@+id/num"
+        android:layout_width="29dp"
+        android:layout_height="57dp"
+        android:layout_marginStart="188dp"
+        android:layout_marginTop="72dp"
+        android:text="@string/num"
+        android:textSize="40dp"
+        android:textColor="@color/darkgrey"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline3"></TextView>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/start"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="90dp"
+        android:text="@string/start"
+        android:textSize="30dp"
+        android:background="@drawable/buttonstyle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline4">
+
+
+    </androidx.appcompat.widget.AppCompatButton>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_end="217dp" />
+        app:layout_constraintGuide_percent="0.52" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="top"
+        app:constraint_referenced_ids="start" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.72" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
