@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">Project3</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="Easy">Easy</string>
+    <string name="Medium">Medium</string>
+    <string name="Hard">Hard</string>
+    <string name="difficulty">Select difficulty:</string>
+    <string name="operator">Select operation:</string>
+    <string name="addition">Addition</string>
+    <string name="multi">Multiplication</string>
+    <string name="division">Division</string>
+    <string name="sub">Subtraction</string>
+    <string name="qnum">Number of questions</string>
+    <string name="minus">-</string>
+    <string name="plus">+</string>
 </resources>
