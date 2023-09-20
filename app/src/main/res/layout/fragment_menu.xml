@@ -3,22 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingTop="0dp">
-
-
-    <!-- TODO: Update blank fragment layout -->
+    android:layout_height="match_parent">
 
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
         android:adjustViewBounds="true"
         android:scaleType="fitXY"
         android:src="@mipmap/ic_launcher_foreground"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="-98dp" />
+        app:layout_constraintBottom_toTopOf="@+id/guideline5"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <RadioGroup
         android:id="@+id/radioGroup1"
@@ -42,8 +39,7 @@
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:onClick="onRadioButtonClicked"
-            android:text="@string/Medium"
-            android:textColor="@color/darkgrey"
+            android:text="@string/Easy"
             tools:layout_editor_absoluteX="5dp"
             tools:layout_editor_absoluteY="230dp" />
 
@@ -53,18 +49,16 @@
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:onClick="onRadioButtonClicked"
-            android:text="@string/Easy"
-            android:textColor="@color/darkgrey"
+            android:text="@string/Medium"
             tools:layout_editor_absoluteX="5dp"
             tools:layout_editor_absoluteY="182dp" />
 
         <RadioButton
-            android:id="@+id/large"
+            android:id="@+id/hard"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:onClick="onRadioButtonClicked"
             android:text="@string/Hard"
-            android:textColor="@color/darkgrey"
             tools:layout_editor_absoluteX="5dp"
             tools:layout_editor_absoluteY="278dp" />
 
@@ -75,7 +69,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.31" />
+        app:layout_constraintGuide_begin="220dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
@@ -107,7 +101,6 @@
             android:onClick="onRadioButtonClicked"
             android:padding="0dp"
             android:text="@string/addition"
-            android:textColor="@color/darkgrey"
             tools:layout_editor_absoluteX="5dp"
             tools:layout_editor_absoluteY="230dp" />
 
@@ -118,7 +111,6 @@
             android:layout_height="30dp"
             android:onClick="onRadioButtonClicked"
             android:text="@string/multi"
-            android:textColor="@color/darkgrey"
             tools:layout_editor_absoluteX="5dp"
             tools:layout_editor_absoluteY="182dp" />
 
@@ -128,7 +120,6 @@
             android:layout_height="30dp"
             android:onClick="onRadioButtonClicked"
             android:text="@string/division"
-            android:textColor="@color/darkgrey"
             tools:layout_editor_absoluteX="5dp"
             tools:layout_editor_absoluteY="278dp" />
 
@@ -138,7 +129,6 @@
             android:layout_height="30dp"
             android:onClick="onRadioButtonClicked"
             android:text="@string/sub"
-            android:textColor="@color/darkgrey"
             tools:layout_editor_absoluteX="5dp"
             tools:layout_editor_absoluteY="278dp" />
     </RadioGroup>
@@ -149,8 +139,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:text="@string/qnum"
-        android:textSize="30dp"
         android:textColor="@color/darkgrey"
+        android:textSize="30dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline3"></TextView>
 
@@ -161,8 +151,8 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="52dp"
         android:text="@string/plus"
-        android:textSize="60dp"
         android:textColor="@color/darkgrey"
+        android:textSize="60dp"
         app:layout_constraintStart_toEndOf="@+id/num"
         app:layout_constraintTop_toTopOf="@+id/guideline3"></TextView>
 
@@ -173,8 +163,8 @@
         android:layout_marginStart="92dp"
         android:layout_marginTop="52dp"
         android:text="@string/minus"
-        android:textSize="60dp"
         android:textColor="@color/darkgrey"
+        android:textSize="60dp"
         app:layout_constraintEnd_toStartOf="@+id/num"
         app:layout_constraintHorizontal_bias="0.772"
         app:layout_constraintStart_toStartOf="parent"
@@ -187,8 +177,8 @@
         android:layout_marginStart="188dp"
         android:layout_marginTop="72dp"
         android:text="@string/num"
-        android:textSize="40dp"
         android:textColor="@color/darkgrey"
+        android:textSize="40dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline3"></TextView>
 
@@ -196,10 +186,10 @@
         android:id="@+id/start"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/buttonstyle"
         android:padding="90dp"
         android:text="@string/start"
         android:textSize="30dp"
-        android:background="@drawable/buttonstyle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline4">
 
@@ -226,5 +216,12 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.72" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.43" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
