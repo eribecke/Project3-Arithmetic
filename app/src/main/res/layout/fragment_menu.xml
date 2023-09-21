@@ -144,31 +144,33 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline3"></TextView>
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/plus"
         android:layout_width="35dp"
         android:layout_height="77dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="52dp"
+        android:background="@drawable/buttonstyle2"
         android:text="@string/plus"
         android:textColor="@color/darkgrey"
         android:textSize="60dp"
         app:layout_constraintStart_toEndOf="@+id/num"
-        app:layout_constraintTop_toTopOf="@+id/guideline3"></TextView>
+        app:layout_constraintTop_toTopOf="@+id/guideline3"></androidx.appcompat.widget.AppCompatButton>
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/minus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="92dp"
         android:layout_marginTop="52dp"
+        android:background="@drawable/buttonstyle2"
         android:text="@string/minus"
         android:textColor="@color/darkgrey"
         android:textSize="60dp"
         app:layout_constraintEnd_toStartOf="@+id/num"
         app:layout_constraintHorizontal_bias="0.772"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline3"></TextView>
+        app:layout_constraintTop_toTopOf="@+id/guideline3"></androidx.appcompat.widget.AppCompatButton>
 
     <TextView
         android:id="@+id/num"
@@ -189,7 +191,7 @@
         android:background="@drawable/buttonstyle"
         android:padding="90dp"
         android:text="@string/start"
-        android:textSize="30dp"
+        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline4">
 

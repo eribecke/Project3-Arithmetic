@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "edu.iu.eribecke.project3"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "edu.iu.eribecke.project3"
