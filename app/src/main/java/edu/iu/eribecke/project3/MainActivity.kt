@@ -13,16 +13,16 @@ import androidx.appcompat.app.AppCompatActivity
 
 
 class MainActivity : AppCompatActivity() {
+    //creating private variables
     private lateinit var selDif: RadioButton
     private lateinit var selOp: RadioButton
     private var questionNum = ""
-    private var count = 0;
+    private var count = 1;
 
-    @SuppressLint("SuspiciousIndentation")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.fragment_menu)
-
+        //creating variables
         val startButton = findViewById<Button>(R.id.start)
         val plusButton = findViewById<Button>(R.id.plus)
         val minusButton = findViewById<Button>(R.id.minus)
@@ -38,15 +38,16 @@ class MainActivity : AppCompatActivity() {
         var operator = ""
 
 
-
+        //handles what happens after start button is clicked
         startButton.setOnClickListener {
+            //creating a new intent activity to switch to the question screen
             val i = Intent(this, questions::class.java)
             i.putExtra("Operand", operand)
             i.putExtra("Operator", operator)
             i.putExtra("qNum", count)
             startActivity(i)
         }
-
+        //updates variables based on selected radio buttons
         easy.setOnClickListener() {
             operand = 10
         }

@@ -21,4 +21,7 @@
     <string name="what">What is...</string>
     <string name="done">DONE</string>
     <string name="answer">Your answer...</string>
+    <string name="do_it_again">Do it again</string>
+    <string name="score">7 out of 10</string>
+    <string name="your_score">Your score:</string>
 </resources>
