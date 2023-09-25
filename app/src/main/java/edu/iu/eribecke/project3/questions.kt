@@ -93,7 +93,7 @@ class questions : AppCompatActivity() {
             // matched the number of problems the user chose
             //if it was the last problem, opens the result screen
             if(count == questionNum){
-                val i = Intent(this, end::class.java)
+                val i = Intent(this, MainActivity::class.java)
                 i.putExtra("Correct", correct)
                 i.putExtra("qNum", count)
                 startActivity(i)
