@@ -1,4 +1,4 @@
-package edu.iu.eribecke.project3
+package edu.iu.habahram.secretmessage_completed
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

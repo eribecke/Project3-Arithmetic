@@ -2,35 +2,36 @@ package edu.iu.eribecke.project3
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import org.w3c.dom.Text
 
 
-class questions : AppCompatActivity() {
+class questions : Fragment() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.fragment_questions)
-        //creating variables
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+//creating variables
         //first three are variables containing information from MainActivity class
-        val operand = intent.getIntExtra("Operand", 10)
-        val operation = intent.getStringExtra("Operator") ?: "addition"
-        val questionNum = intent.getIntExtra("qNum", 1)
-        val done = findViewById<Button>(R.id.done)
-        var num1Text = findViewById<TextView>(R.id.num1)
-        var num2Text = findViewById<TextView>(R.id.num2)
+        val view = inflater.inflate(R.layout.fragment_questions, container, false)
+        val done = view.findViewById<Button>(R.id.done)
+        var num1Text = view.findViewById<TextView>(R.id.num1)
+        var num2Text = view.findViewById<TextView>(R.id.num2)
         var num1 = 0
         var num2 = 0
         var count = 0
         var answer = 1.0
         var correct = 0
-        var sign = findViewById<TextView>(R.id.sign)
-        var userAnswer = findViewById<EditText>(R.id.editText)
+        var sign = view.findViewById<TextView>(R.id.sign)
+        var userAnswer = view.findViewById<EditText>(R.id.editText)
         //setting up the first problem that is displayed on screen creation
         //choosing the correct operation
         if (operation == "+") {
@@ -126,5 +127,8 @@ class questions : AppCompatActivity() {
 
 
     }
+    }
+
+
 }
 
