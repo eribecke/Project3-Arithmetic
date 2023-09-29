@@ -10,9 +10,16 @@
         android:name="edu.iu.eribecke.project3.menu"
         android:label="fragment_menu"
         tool:layout="@layout/fragment_menu">
-    <action
-        android:id="@+id/action_menuFragment_to_questionsFragment"
-        app:destination="@id/questions" />
+        <action
+            android:id="@+id/action_menuFragment_to_questionsFragment"
+            app:destination="@id/questions"/>
+        <argument
+            android:name="result"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null"
+            />
+
     </fragment>
     <fragment
         android:id="@+id/questions"
@@ -22,7 +29,17 @@
         <action
             android:id="@+id/action_questionFragment_to_menuFragment"
             app:destination="@id/menu"/>
+        <argument
+            app:argType="integer"
+            android:name="questionNum" />
+        <argument
+            android:name="operand"
+            app:argType="integer" />
+        <argument
+            android:name="operator"
+            app:argType="string" />
     </fragment>
+
 
 
 </navigation>

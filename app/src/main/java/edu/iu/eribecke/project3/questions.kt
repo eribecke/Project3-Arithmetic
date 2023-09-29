@@ -1,16 +1,22 @@
 package edu.iu.eribecke.project3
 
-import android.content.Intent
+
 import android.os.Bundle
+import android.annotation.SuppressLint
+import android.media.MediaPlayer
+
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.RadioButton
+import android.widget.RadioGroup
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
+import android.widget.Toast
 import androidx.fragment.app.Fragment
-import org.w3c.dom.Text
+import androidx.fragment.app.setFragmentResult
+import androidx.navigation.findNavController
 
 
 class questions : Fragment() {
@@ -30,8 +36,12 @@ class questions : Fragment() {
         var count = 0
         var answer = 1.0
         var correct = 0
+        val questionNum = questionsArgs.fromBundle(requireArguments()).questionNum
+        val operation = questionsArgs.fromBundle(requireArguments()).operator
+        val operand = questionsArgs.fromBundle(requireArguments()).operand
         var sign = view.findViewById<TextView>(R.id.sign)
         var userAnswer = view.findViewById<EditText>(R.id.editText)
+        var results = ""
         //setting up the first problem that is displayed on screen creation
         //choosing the correct operation
         if (operation == "+") {
@@ -82,25 +92,60 @@ class questions : Fragment() {
 
         }
 
+
         //handles what happens when the done button is clicked
         done.setOnClickListener {
             answer = userAnswer.text.toString().toDouble()
             count++
             //updating number of correct answers
             if (correct(num1, num2) == answer) {
+                val toastT = "Correct, Good Work!"
+                val toast1 = Toast.makeText(getActivity(), toastT, Toast.LENGTH_SHORT)
+                toast1.show()
+                var mediaPlayer = MediaPlayer.create(context, R.raw.correct)
+                mediaPlayer.start()
                 correct++
             }
+            if(correct(num1, num2) != answer){
+                val toastT2 = "Wrong."
+                val toast1 = Toast.makeText(getActivity(), toastT2, Toast.LENGTH_SHORT)
+                toast1.show()
+                var mediaPlayer2 = MediaPlayer.create(context, R.raw.incorrect)
+                mediaPlayer2.start()
+            }
+
             //checking to see if the number of answered questions
             // matched the number of problems the user chose
             //if it was the last problem, opens the result screen
             if(count == questionNum){
-                val i = Intent(this, MainActivity::class.java)
-                i.putExtra("Correct", correct)
-                i.putExtra("qNum", count)
-                startActivity(i)
+                var sOperation = ""
+                sOperation = if(operation == "+"){
+                    "addition"
+                } else if(operation == "/"){
+                    "division"
+                } else if(operation == "-"){
+                    "subtraction"
+                } else{
+                    "multiplication"
+                }
+                results = if(correct.toDouble()/questionNum.toDouble() >= 0.8){
+
+                    "You got " + correct + " out of " + questionNum + " in " + sOperation +
+                            ". Good Work!"
+                } else{
+                    "You got a " + correct + " out of " + questionNum + " correct in " + sOperation +
+                            ". You need to practice more!"
+                }
+
+                val action = questionsDirections.actionQuestionFragmentToMenuFragment().apply{
+                    result = results
+                }
+                view.findNavController()
+                    .navigate(action)
             }
             //generates next problem
             else {
+
                 if (operand == 10) {
 
                     num1 = (1 until 10).random()
@@ -125,10 +170,10 @@ class questions : Fragment() {
         }
 
 
-
+    return view
     }
     }
 
 
-}
+
 
