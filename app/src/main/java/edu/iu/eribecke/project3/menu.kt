@@ -58,12 +58,14 @@ class menu: Fragment() {
         val resultDisplay = view.findViewById<TextView>(R.id.result)
         var operand = 0
         var operator = ""
+
+        //checks to see if results is null, if not we know that results must be displayed
         if(results!=null) {
             resultDisplay.text = results.toString()
         }
 
 
-
+        //handles start button
         startButton.setOnClickListener {
             //creating an action to switch to the question screen
             val action = menuDirections.actionMenuFragmentToQuestionsFragment(count, operand, operator)

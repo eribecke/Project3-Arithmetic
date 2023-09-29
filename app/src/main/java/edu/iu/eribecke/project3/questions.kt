@@ -25,8 +25,7 @@ class questions : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-//creating variables
-        //first three are variables containing information from MainActivity class
+        //creating view and variables
         val view = inflater.inflate(R.layout.fragment_questions, container, false)
         val done = view.findViewById<Button>(R.id.done)
         var num1Text = view.findViewById<TextView>(R.id.num1)
@@ -36,6 +35,7 @@ class questions : Fragment() {
         var count = 0
         var answer = 1.0
         var correct = 0
+        //getting values from other fragment
         val questionNum = questionsArgs.fromBundle(requireArguments()).questionNum
         val operation = questionsArgs.fromBundle(requireArguments()).operator
         val operand = questionsArgs.fromBundle(requireArguments()).operand
@@ -97,19 +97,24 @@ class questions : Fragment() {
         done.setOnClickListener {
             answer = userAnswer.text.toString().toDouble()
             count++
-            //updating number of correct answers
+            //creating toast for correct answers
             if (correct(num1, num2) == answer) {
                 val toastT = "Correct, Good Work!"
                 val toast1 = Toast.makeText(getActivity(), toastT, Toast.LENGTH_SHORT)
                 toast1.show()
+                //playing sound for correct answers
                 var mediaPlayer = MediaPlayer.create(context, R.raw.correct)
                 mediaPlayer.start()
+                //updating number of correct answers
                 correct++
             }
+            //handles wrong answers
             if(correct(num1, num2) != answer){
+                //creates toast for wrong answers
                 val toastT2 = "Wrong."
                 val toast1 = Toast.makeText(getActivity(), toastT2, Toast.LENGTH_SHORT)
                 toast1.show()
+                //plays sound for wrong answers
                 var mediaPlayer2 = MediaPlayer.create(context, R.raw.incorrect)
                 mediaPlayer2.start()
             }
@@ -128,6 +133,7 @@ class questions : Fragment() {
                 } else{
                     "multiplication"
                 }
+                //calculations percent correct and sets results equal to corresponding message
                 results = if(correct.toDouble()/questionNum.toDouble() >= 0.8){
 
                     "You got " + correct + " out of " + questionNum + " in " + sOperation +
@@ -136,7 +142,7 @@ class questions : Fragment() {
                     "You got a " + correct + " out of " + questionNum + " correct in " + sOperation +
                             ". You need to practice more!"
                 }
-
+                //go to another menu fragment and updates the value of results
                 val action = questionsDirections.actionQuestionFragmentToMenuFragment().apply{
                     result = results
                 }
