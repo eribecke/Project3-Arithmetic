@@ -2,7 +2,7 @@
 
 This app is an arithmetic problem generator. The user can choose from a list of difficulties and operations to practice specific kinds of math problems.
 There are three different tabs: the menu tab, the problem tab, and the results tab.
-The user can also select what type of operation they want the problems to use (+, -, x, /) and they can choose the number of problems they want to solve.
+The user can also select what type of operation they want the problems to use (+, -, x, /) and they can choose the number of problems they want to solve. (The Project 4 branch is an upgraded version of this app.)
 
 
 ## Functionality 
